@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "axios": "^1.7.3",
+    "cheerio": "^1.0.0-rc.12",
+    "fs": "^0.0.1-security",
+    "jsdom": "^24.1.1",
+    "path": "^0.12.7",
+    "youtube-transcript": "^1.2.1",
+    "youtube-transcript-api": "^1.1.2"
+  }
+}

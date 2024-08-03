@@ -1,0 +1,117 @@
+Start Time,End Time,Text
+0.0,4.38,every few months I find myself setting
+1.979,6.0600000000000005,up a node.js project with typescript and
+4.38,7.7989999999999995,every time I do that my configuration
+6.06,9.24,seems to be different which is very
+7.799,11.88,annoying I could just switch over to
+9.24,13.379999999999999,dino or maybe try a harakiri ritual but
+11.88,15.360000000000001,that's not always an option in this
+13.38,17.580000000000002,video we'll set up node.js version 18
+15.36,19.259999999999998,with typescript and look at a couple of
+17.58,20.698999999999998,other cool tricks along the way the
+19.26,23.46,first step is to initialize a node
+20.699,25.199,project by running npm net flag y to
+23.46,27.539,give us a package Json from there I'm
+25.199,30.0,creating an index.js file then inside
+27.539,31.859,this file I want to import a package the
+30.0,34.019999999999996,traditional way to do that node is with
+31.859,36.36,common JS using this require function
+34.02,39.059000000000005,however most developers today prefer es
+36.36,40.739,modules using the import export syntax
+39.059,42.899,so let's go ahead and convert our code
+40.739,44.879,to an es import now if we open up the
+42.899,46.559,terminal and try to run this code you'll
+44.879,48.839999999999996,notice we get an error telling us that
+46.559,50.82,we can't use an es module unless we
+48.84,52.92,first go into our package Json and
+50.82,54.78,change the type to module this tells
+52.92,56.699,node to use es modules instead of
+54.78,58.26,require and now our code works perfectly
+56.699,59.94,that's cool but this video is about
+58.26,61.68,typescript so let's go ahead and install
+59.94,63.12,soul type script now and you'll want to
+61.68,65.939,make sure you have a version greater
+63.12,68.03999999999999,than 4.7 in addition in the package Json
+65.939,69.83999999999999,we'll add a script that runs that
+68.04,71.52000000000001,typescript compiler to build the
+69.84,73.86,application or convert the typescript
+71.52,75.36,code into JavaScript code now before we
+73.86,77.22,configure it I'm going to organize
+75.36,79.68,things by creating a source directory
+77.22,81.36,and add our index TS file to it when
+79.68,82.92,using node built-ins you might get an
+81.36,85.02,error that says it cannot find the
+82.92,86.759,corresponding type declarations in which
+85.02,88.67999999999999,case you'll want to install the types
+86.759,90.24,for node and the error should magically
+88.68,93.0,disappear the next thing we'll do is
+90.24,94.979,create a tsconfig.json file to configure
+93.0,96.84,the behavior of the typescript compiler
+94.979,98.7,for now I'm going to paste in a config
+96.84,100.07900000000001,that I've used in past projects and let
+98.7,102.72,me explain what all these things mean
+100.079,104.88,module defines the module system for the
+102.72,106.439,program common JS would be ideal for a
+104.88,108.6,program that users require but we're
+106.439,110.22,going to change that to node next this
+108.6,112.02,is a relatively new Option that's
+110.22,114.0,designed to work with a package Json
+112.02,115.92,that has the type set to module after
+114.0,117.6,that we have module resolution which
+115.92,119.57900000000001,determines how typescript will find code
+117.6,121.86,that you import let's also go ahead and
+119.579,123.65899999999999,change that that to node next now the
+121.86,125.64,target is the flavor of JavaScript that
+123.659,127.43900000000001,your code will compile to yes 2020
+125.64,129.06,should be fine if you're deploying to a
+127.439,131.16,modern version of node but you can go
+129.06,132.66,all the way back to ES3 if you prefer we
+131.16,134.4,then have the source map option set to
+132.66,136.14,True which Maps the compile JavaScript
+134.4,137.70000000000002,code back to typescript which can help
+136.14,139.379,us out with debugging and then finally
+137.7,140.819,we have the out directory which is where
+139.379,142.739,the final JavaScript code will be
+140.819,144.11999999999998,compiled that's it for compiler options
+142.739,145.86,the last thing we need to do is tell
+144.12,147.48000000000002,typescript where to find our code with
+145.86,149.34,the include option pointing to the
+147.48,150.959,source directory that takes care of the
+149.34,153.48,config now let's pull up the terminal
+150.959,155.34,and run npm run build that runs the
+153.48,157.5,typescript compiler to generate this
+155.34,159.72,disk folder that contains the Javascript
+157.5,161.16,file that we can actually run on node.js
+159.72,163.08,we now have typescript running in
+161.16,164.57999999999998,node.js but there is one important thing
+163.08,167.16000000000003,you should know here let's imagine we
+164.58,169.44000000000003,have a helper.ts file that exports some
+167.16,171.35999999999999,code if we try to then import it in the
+169.44,173.099,index file you'll notice we get an error
+171.36,175.37900000000002,saying that it needs an explicit file
+173.099,177.29999999999998,extension when using node next we need
+175.379,178.98,to use the dot JS extension when
+177.3,181.20000000000002,importing files local to our project
+178.98,183.42,this is not the case when importing
+181.2,185.16,packages from node modules so just be
+183.42,186.83999999999997,aware of this weird caveat the reason
+185.16,189.12,that's like this is because we can also
+186.84,191.18,use common JS modules side by side in
+189.12,193.92000000000002,the project if we create a file called
+191.18,196.37900000000002,helper.cts we can use the common JS
+193.92,198.23899999999998,module export syntax inside of it then
+196.379,201.239,back inside the index file we can import
+198.239,203.64000000000001,that code using the CJs file extension
+201.239,205.92000000000002,so basically the node next option gives
+203.64,208.26,us much better interop between common JS
+205.92,209.94,and esm and with that we have a good
+208.26,211.379,starting point for node.js and
+209.94,213.18,typescript there are tons of other
+211.379,214.56,options in the typescript config but
+213.18,216.12,hopefully you never have to touch them
+214.56,217.8,although I am working on a full
+216.12,220.019,typescript course that will take a deep
+217.8,221.70000000000002,dive into all this after typescript 5 is
+220.019,223.44,released early next year thanks for
+221.7,225.67999999999998,watching and I will see you in the next
+223.44,225.68,one
