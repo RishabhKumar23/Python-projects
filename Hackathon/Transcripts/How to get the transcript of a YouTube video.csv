@@ -1,0 +1,312 @@
+Start Time,End Time,Text
+0.08,6.32,"hello is that dr pi? yeah speaking, can you get us 
+some transcripts from youtube? transcripts? yeah  "
+6.32,15.92,"okay I can do that! we will be awfully grateful 
+if you can do this lovely job all right thank you"
+22.32,26.08,"hello everybody in this video we're going 
+to look at how to get the transcript of a  "
+26.08,32.16,"youtube video automatically so we're going to be 
+using python code to do this so let's look at how  "
+32.16,42.48,"we're going to get about it so firstly we want 
+to get the id of the youtube video so the id is  "
+42.48,48.4,"the last part of the url of the video that you're 
+watching that you want to get the transcript from  "
+49.76,62.16,"next we want to uh we want to add the id to our 
+python code and once we've done that we can then  "
+62.16,68.72,"pass the output and we can save it to a text 
+file or we can do some NLP with it if we want so  "
+70.32,76.47999999999999,"we've all got our own reasons for passing and 
+for actually extracting the transcript anyway um  "
+76.48,83.04,"obviously there's manual ways of doing this 
+and there are browser extensions but we want  "
+83.04,88.56,"to do this programmatically and also we 
+may want to do it for many many videos  "
+88.56,92.96000000000001,"so you don't want to sit there keep clicking 
+right clicking copy and pasting and so on so"
+95.04,101.84,"as i said the part of the i part 
+of the url which represents the id  "
+101.84,110.72,"which you will need to get is this so after the 
+equals and there's a little gotcha actually which  "
+110.72,117.12,"i'll show you in the code in a minute where 
+if it begins if it begins with a backslash  "
+118.4,129.36,"so that's what you need to do and once you've got 
+the video id then it's time to install pip install  "
+129.36,137.60000000000002,"youtube dash transcript dash api and if you're 
+doing it the normal old-fashioned way pip install  "
+137.6,147.2,"youtube underscore transcript underscore api or 
+if you're using conda conda install c conda dash  "
+147.2,153.67999999999998,"forge youtube dash transcript dash api so when you 
+do it on conda you've just got hyphens instead of  "
+153.68,160.16,"underscores this is the conda page it was last 
+updated three months ago so it's very recent  "
+161.2,167.92,"it's quite a new project actually only 248 
+downloads anyway when you've installed it  "
+167.92,172.79999999999998,"or when you want to install it using conda you'll 
+get a screen like this and it'll prompt you that  "
+172.8,181.04000000000002,"you need to uh update or install the following 
+packages ca certificates certified and conda  "
+181.04,190.95999999999998,"and just say yes to agree to these they're quite 
+small um right this is the this is a screenshot of  "
+190.96,201.44,"the of the uh the the this is a screenshot of the 
+documentation couldn't get my words out then not  "
+201.44,207.52,"getting seen honestly it's just uh like a coffee 
+right from youtube underscore transcript api  "
+207.52,215.04000000000002,"import use youtube transcript api so just copy and 
+paste that from the documentation then this is the  "
+215.04,222.56,"good bit youtube youtube transcript api dot get 
+underscore transcript and then a brackets video id  "
+223.12,229.92000000000002,"so there's no um there's no quotes or anything for 
+that so just paste it straight into the brackets  "
+229.92,236.16,"and if you were to copy what they've shown 
+here you would actually just get a large  "
+236.16,242.79999999999998,"um large python dictionary insert or multiple 
+python dictionaries inside the list so  "
+243.92,247.2,"in a minute i'll show you some code and 
+i'll show you how to actually extract that  "
+248.24,251.60000000000002,"if you want different languages you 
+can specify different languages so  "
+251.6,257.84,"what it does is actually checks in sequence so 
+it will check if you put d e then it will check  "
+257.84,262.56,"for a german transcript first and then english 
+and so on and so on so you can put many many  "
+263.2,268.96,"different flavors there and uh yeah it will 
+try and get the one that you want in sequence  "
+268.96,276.0,"in order of priority um right so this is some 
+code this is what we will get when we run it so  "
+276.0,281.84,"this is just a little taster and if you like 
+this code or if you like the projects rather  "
+282.48,294.32,"um then donate if possible to jonas de poire at 
+web dot d e uh go to the go to the documentation  "
+294.32,300.48,"and you will see his donate button there and 
+if you like what i do then don't forget to  "
+300.48,305.76,"check out red and green which is my website and 
+there's links to various different things we got  "
+305.76,311.36,"a bit of network automation my github page my 
+blog where i just put a few technical notes  "
+312.64,317.91999999999996,"rather than more than a few even data 
+extraction challenges using jquery  "
+317.92,325.84000000000003,"and working with json and apis and there we 
+go so if you'd like to see some actual code  "
+327.68,334.88,"okay so we've done the conda install we've 
+installed youtube transcript api if you want to do  "
+334.88,341.2,"it with pip then you don't need to do the cond a 
+bit so this is where we do the import the module  "
+341.2,350.08,"from youtube transcript api import youtube 
+transcript api then um just a quick note here  "
+351.04,357.12,"you can have a list of just a couple of settings 
+so as i mentioned just now this is a note about  "
+357.12,367.04,"the language settings and um also with regard to 
+the video id if the video id starts with a hyphen  "
+368.56,371.04,you'll have to mask the hyphen using the
+374.24,381.44,"backslash so yeah if it's got a hyphen at the 
+start you just need to put a backslash otherwise  "
+381.44,386.88,"the uh the code will think that it's an 
+argument or think it's an argument name  "
+386.88,391.52,"so the main code if you're ready to see 
+that well i've already got an extracted  "
+392.56,398.88,"video id so all i've done is just found a 
+video i found one that had subtitles and  "
+398.88,402.32,"if it doesn't have subtitles you're getting 
+that or you won't get an error but you'll  "
+402.32,407.84,"get a notification saying that it it's not 
+possible to get subtitles for this video  "
+409.36,419.2,"so the main code out ls so that's going to be 
+the list which captures the output of all of the  "
+420.48,427.52000000000004,"subtitles so tx equals youtube transcripts 
+api dot get trans get underscore transcript  "
+428.24,435.28000000000003,"and there we can see um the parameters that you 
+pass to it so you can pass to the video id the  "
+435.28,441.52,"languages and it can also cope with proxies and 
+cookies the default is no proxy and no cookies  "
+442.56,449.12,"so the default is also english if you don't 
+specify languages either so i could actually  "
+449.12,453.36,"leave that out well i'm just for demonstration 
+purposes i'm going to leave d e in here  "
+453.36,458.08000000000004,"and you'll see what happens because when d 
+e is not available it will then just go off  "
+458.08,464.47999999999996,"and get english um be aware that these are two 
+letter country codes uh what was i using the other  "
+464.48,471.44,"day something was using three-letter country 
+codes i think that may have been i don't know  "
+471.44,477.84,"was it ginger something like that not not ginger 
+itself but uh something i was doing with ginger  "
+478.72,488.0,"um for i in tx so for so the object which youtube 
+transcript api dot gets i've just called tx so  "
+488.0,494.32,"for each item in that object so it's basically 
+returning a list for each item in that list  "
+494.32,500.56,"um we want to do this so this is the bit 
+that you wouldn't see on the documentation  "
+500.56,506.72,"and this is the bit that actually picks out the 
+text if you don't do this you'll end up with  "
+506.72,515.36,"a json dictionary and you'll end up with start 
+times end times um and so on it won't provide you  "
+515.36,523.04,"with what you need if you're planning on working 
+with just the actual text for instance if you're  "
+523.04,530.56,"about to do something with nlp um maybe it's not 
+sentiment analysis well maybe sentiment analysis  "
+531.12,538.88,"um you may be creating a bag of words analyzing 
+part of speech etc etc so uh what we've got here  "
+538.88,545.28,"is text so we're just like putting one line of 
+text and then we're going to append it to our list  "
+546.64,554.64,"and um also what i'm going to do is open a 
+new file or append and then i'm going to write  "
+555.44,563.2,"the text from the current line as we go 
+through the video so obviously the video runs  "
+563.76,568.96,"that way because of the timings so as we go 
+through time we keep getting a new line a new  "
+568.96,574.96,"line a new line new line new line so and that's 
+why i've put new line here without the new line  "
+574.96,581.6,"you just end up with a massive long you just 
+imagine 40 minute video just with one line of text  "
+582.72,588.4,"not good right then all i've done in it just 
+for um a little bit of a bonus i've added in  "
+589.68,594.0,"chrome sklearn feature extraction 
+just added in account vectorizer  "
+594.72,599.12,"and it converts a collection of text 
+documents to a matrix of token accounts  "
+600.24,607.04,"and yeah from here you could go and do 
+your own thing with um yeah nlp and so on  "
+608.32,613.0400000000001,"you could even reject the video if it didn't 
+have a certain phrase so you could go off  "
+613.04,621.4399999999999,"and get subtitles from many many videos 
+and rather than watching um 20 videos on"
+624.0,630.16,"climate change you could get the 
+20 transcripts and then you could  "
+630.16,634.16,"you could just search each of those 
+transcripts for certain words such as  "
+634.88,641.36,"polar bear maybe only three of those videos have 
+got the word polar bear so rather than watching  "
+641.36,647.6800000000001,"20 videos you then know that you've only got to 
+watch those three videos so this isn't all about  "
+649.36,655.6800000000001,"hacking or web scraping or doing anything naughty 
+it can be used purely to save your time and  "
+656.56,662.8,"i know youtube would probably like you to watch 
+20 20 videos that all last an hour long but um  "
+663.44,667.6,"i think they would still be happy if you're only 
+watching three videos they're an hour long each  "
+667.6,672.72,"you know three hours is better than nothing um and 
+you probably wouldn't sit down and watch 20 hours  "
+672.72,676.96,"worth of videos anyway so you then what would 
+you do i don't know you'd probably just go off  "
+676.96,683.52,"and read a book so with that all that being said 
+i think it's time to actually demonstrate the code  "
+683.52,689.68,"so what i'm just going to do is just i'll just 
+comment that comment out this bit for starters  "
+689.68,697.3599999999999,"and what we'll do is we will just run the main 
+code which should just generate us a text file  "
+697.36,702.08,"so if i just bring up the sidebar 
+and you see i've already run it once  "
+702.08,707.76,"so let's just delete that text 
+file and um yeah let's run it so"
+711.6,722.0,"it's run and that was when i um run my code within 
+vs code it sends all this output to the screen  "
+722.8,726.16,"um and it runs successfully no 
+error message and i know it runs  "
+726.16,730.56,"successfully because i've got that op 
+text file back and let's have a look so"
+732.72,738.5600000000001,"hi everyone welcome to this lecture series 
+on osi i file storage service and in this  "
+738.56,741.68,"particular module we're going to introduce 
+the file storage service and look at it  "
+742.24,746.96,"some of its characteristics my name is ryan i'm 
+part of the oracle cloud infrastructure team  "
+746.96,752.32,"so that's pretty good i mean there's 
+very few kind of um errors there  "
+753.12,761.2,"last week i was adding subtitles to my videos 
+about ginger and that's obviously j-i-n-j-a and  "
+762.48,769.9200000000001,"yeah the subtitles were just calling it ginger as 
+in g-i-n-g-e-r and had to change that everywhere  "
+771.84,780.72,"ginger obviously being a plant or a flavor flavor 
+of biscuits right so that is the output file which  "
+781.68,789.12,"um yeah okay so so far so good before we run let's 
+just delete that and i'll run that on it let's  "
+789.12,799.84,"just uh test it on them on a different come on 
+delete i've made the font really big and it's um  "
+801.28,806.0799999999999,"made it a bit harder to do 
+what i normally do so um"
+808.56,816.0,"right okay so let's just get um 
+another youtube video youtube"
+820.72,822.32,and anyone got any requests
+825.76,827.84,um
+830.72,838.72,"tell you what let's do one of my videos so if 
+you let's just um there's two ways of doing it  "
+838.72,843.44,"so what the an easy way to actually get it 
+is just to click share and then just go in  "
+843.44,853.6800000000001,"here and that's the video id there so um i said 
+it was easy there you go right right click copy  "
+855.04,862.48,"and um let's replace what i had in here 
+before with my new video id so there we go  "
+862.48,866.88,"and this should work because i have done 
+the subtitles for it so if we run it"
+869.52,876.72,"may take a while wow that was only about 
+what two seconds and um wow because  "
+878.08,887.44,"that's interesting i've actually enabled german 
+subtitles on my on my most recent videos and  "
+887.44,892.6400000000001,"it's actually gone off and got the german and 
+i think there's some characters missing from  "
+892.64,895.84,"the whether it is i think it's 
+probably missing the on lives  "
+896.8,902.7199999999999,"so you you've got the german translation there 
+because it tries german first uh if i take  "
+902.72,906.64,"out german from there it will just obviously 
+just get the english so i'm gonna delete that  "
+907.68,914.7199999999999,"run it one more time just to 
+prove that it does multi language  "
+916.0,921.84,"and um well it's even got i don't 
+know why it's putting this in here"
+924.0,926.56,oh it's not liking the new line characters is it
+929.44,929.84,maybe
+932.64,934.16,don't know that's um
+938.24,940.8,in fact let's just open that with uh
+943.28,948.3199999999999,"let's just open that with a different text editor 
+shall we i'm just going to open that with um"
+952.64,954.8,let's just open it with word pud  
+956.56,960.4799999999999,"this is uh i'm back on the windows machine 
+because i'm i've been having some issues with  "
+961.12,969.12,"flickering on the screen using um my linux mint 
+and obs so here we go yeah hello everybody today  "
+969.12,973.2,"we're looking at how to scrape videos content 
+from youtube so what i mean is we're going to  "
+973.2,976.96,"download the video so yeah technically you could 
+call it scraping if you want or scrapping if  "
+978.88,983.4399999999999,"yeah don't get me started on scrapping 
+so um this is just how it's rendered in  "
+983.44,988.24,"vs code so don't worry about that it opens 
+fine in a text editor a normal text editor  "
+989.04,997.28,"so there we go and um right who wants to just run 
+a little bit of natural language process well it's  "
+997.28,1001.8399999999999,"not we're not really doing anything clever all 
+we're just doing is we're running count vectorizer  "
+1002.4,1008.24,"which will um creates vectorizer 
+object and then it prints you  "
+1009.84,1018.88,"identified unique words along with their indices 
+so um let's just run that and that'll print to  "
+1018.88,1024.4,"the screen so there we go that's all the 
+unique words uh with their indices so"
+1028.8,1039.76,"if we wanted we could check this text for 
+a certain word um we could check it for"
+1042.96,1043.6000000000001,scraping
+1047.04,1049.12,scrape scraping
+1051.76,1056.8,"so there we go i hope this has been interesting um 
+the whole reason i made this video was because i  "
+1056.8,1062.32,"had a subscriber ask if following on from 
+the previous videos where i've extracted  "
+1062.32,1073.28,"text from uh from the images created from uh 
+stills taken from the video the subscriber said  "
+1073.28,1078.72,"could i extract the transcripts programmatically 
+and obviously this is it this is the solution so"
+1081.28,1087.6,"youtube transcript api and the benefit or 
+the beauty of it is you don't even need to  "
+1087.6,1095.76,"register for an api key and an auth token and 
+so on this is this is usable on any video so um  "
+1097.04,1104.0,"yeah obviously youtube haven't um blocked 
+it or anything so um i know there's a bit  "
+1104.0,1111.44,"about proxies and so on but um for all intents and 
+purposes that's that's not needed here not in this  "
+1111.44,1118.3200000000002,"example or not from the uk so perhaps if you're 
+trying to access this from china or somewhere  "
+1118.32,1124.8,"maybe you need to use proxy i don't know um but 
+there we go so hopefully you've enjoyed this  "
+1124.8,1136.0,"and found it useful don't forget to as usual 
+subscribe thumbs up um because of the algos thank"
+1136.0,1149.84,you
