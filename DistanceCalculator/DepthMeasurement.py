@@ -10,7 +10,7 @@ while True:
     img, faces = detector.findFaceMesh(img, draw=False)
 
     if faces:
-        face = faces[1]
+        face = faces[0]
         pointLeft = face[145]
         pointRight = face[374]
         # Drawing
@@ -18,7 +18,7 @@ while True:
         # cv2.circle(img, pointLeft, 5, (255, 0, 255), cv2.FILLED)
         # cv2.circle(img, pointRight, 5, (255, 0, 255), cv2.FILLED)
         w, _ = detector.findDistance(pointLeft, pointRight)
-        W = 6.3
+        W = 6.3 
 
         # # Finding the Focal Length
         # d = 50
